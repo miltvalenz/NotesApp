@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
+const url = process.env.MONGODB;
 
-mongoose.connect('mongodb://localhost/notes-db-app', {
-    useCreateIndex: true,
-    useNewUrlParser: true,
-    useFindAndModify: false
-}).then(db => console.log('DB is connected'))
-.catch(err => console.log(err));
+mongoose
+	.connect(url, {
+		useCreateIndex: true,
+		useNewUrlParser: true,
+		useFindAndModify: false
+	})
+	.then(db => console.log('DB is connected'))
+	.catch(err => console.log(err));
